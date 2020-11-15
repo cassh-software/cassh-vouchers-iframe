@@ -40,42 +40,41 @@
 
     let script = document.createElement('script')
     script.type = 'text/javascript'
-    script.src = 'https://admin.one-tree.net/assets/js/iframe-resizer/iframeResizer.min.js'
+    script.src = 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/iframe-resizer.js'
     script.onload = script.onreadystatechange = function () {
       if (typeof iFrameResize !== 'undefined') {
-        iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#onetree-iframe')
+        iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#cassh-vouchers-iframe')
       }
     }
 
     /**
      * Receives message when fancybox has been opened
-     * @param  message
      * @return
+     * @param e
      */
     function receiver (e) {
-      if (e.data == 'show details clicked' || e.data == 'page loaded') {
-        let iframe = document.getElementById('onetree-iframe')
+      if (e.data === 'show details clicked' || e.data === 'page loaded') {
+        let iframe = document.getElementById('cassh-vouchers-iframe')
         let set = {
           'scrollTop': $(window).scrollTop(),
-          'offset': $('#onetree-iframe').offset().top,
+          'offset': $('#cassh-vouchers-iframe').offset().top,
           'height': $(window).height(),
-          'offsetBottom': Math.abs($(window).height() - $('#onetree-iframe').offset().top - $('#onetree-iframe').height()),
+          'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
           'clickOverride': true,
-          'iframeHeight': $('#onetree-iframe').height()
+          'iframeHeight': $('#cassh-vouchers-iframe').height()
         }
 
         // Send message to iframe
-        iframe.contentWindow.postMessage(JSON.stringify(set), 'https://admin.one-tree.net/order/init/4?PHPSESSID=dlubipkm9ab6n5qrsvdi83sd02')
-      } else if (e.data == 'fixed iframe height') {
-        $('#onetree-iframe').height('1200px')
-      } else if (e.data == 'scroll to top') {
+        iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
+      } else if (e.data === 'fixed iframe height') {
+        $('#cassh-vouchers-iframe').height('1200px')
+      } else if (e.data === 'scroll to top') {
         // Attempt to scroll them 150px above the top of the iframe
-        let scrollOffset = $('#onetree-iframe').offset().top
+        let scrollOffset = $('#cassh-vouchers-iframe').offset().top
         if (scrollOffset < 0) scrollOffset = 0
         $('html, body').animate({ scrollTop: scrollOffset }, '200')
-      } else if (e.data == 'scroll to middle') {
-
-        let el = $('#onetree-iframe')
+      } else if (e.data === 'scroll to middle') {
+        let el = $('#cassh-vouchers-iframe')
         let elOffset = el.offset().top
         let elHeight = el.height()
         let windowHeight = $(window).height()
@@ -100,19 +99,18 @@
 
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
-      let iframe = document.getElementById('onetree-iframe')
+      let iframe = document.getElementById('cassh-vouchers-iframe')
       let set = {
         'scrollTop': $(window).scrollTop(),
-        'offset': $('#onetree-iframe').offset().top,
+        'offset': $('#cassh-vouchers-iframe').offset().top,
         'height': $(window).height(),
-        'offsetBottom': Math.abs($(window).height() - $('#onetree-iframe').offset().top - $('#onetree-iframe').height()),
+        'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
 
       // Send message to iframe
-      iframe.contentWindow.postMessage(JSON.stringify(set), 'https://admin.one-tree.net/order/init/4?PHPSESSID=dlubipkm9ab6n5qrsvdi83sd02')
+      iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
-
   }
 })
