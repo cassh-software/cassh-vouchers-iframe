@@ -72,7 +72,7 @@
         // Attempt to scroll them 150px above the top of the iframe
         let scrollOffset = $('#cassh-vouchers-iframe').offset().top
         if (scrollOffset < 0) scrollOffset = 0
-        $('html, body').animate({ scrollTop: scrollOffset }, '200')
+        $('html, body').animate({ scrollTop: scrollOffset }, 200)
       } else if (e.data === 'scroll to middle') {
         let el = $('#cassh-vouchers-iframe')
         let elOffset = el.offset().top
