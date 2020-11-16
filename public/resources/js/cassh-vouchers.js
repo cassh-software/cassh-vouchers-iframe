@@ -1,12 +1,12 @@
 (function (window, document, version, callback) {
-  var j, d
-  var loaded = false
+  let j, d
+  let loaded = false
   if (!(j = window.jQuery) || version > j.fn.jquery || callback(j, loaded)) {
-    var script = document.createElement('script')
+    let script = document.createElement('script')
     script.type = 'text/javascript'
     script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
     script.onload = script.onreadystatechange = function () {
-      if (!loaded && (!(d = this.readyState) || d == 'loaded' || d == 'complete')) {
+      if (!loaded && (!(d = this.readyState) || d === 'loaded' || d === 'complete')) {
         callback((j = window.jQuery).noConflict(1), loaded = true)
         j(script).remove()
       }
@@ -17,8 +17,8 @@
 })(window, document, '1.7.2', function ($, jquery_loaded) {
   if ($('#panel-gift-items').length > 0) {
     $('#panel-gift-items').text('')
-    $('<iframe id="onetree-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0"></iframe>').appendTo('#panel-gift-items')
-    $('#onetree-iframe').attr({
+    $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0"></iframe>').appendTo('#panel-gift-items')
+    $('#cassh-vouchers-iframe').attr({
       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
       'style': 'border: 0 none; overflow-y: hidden; min-height: 2000px;'
     })
@@ -28,62 +28,62 @@
         'use strict'
         if (this === void 0 || this === null || typeof fun !== 'function') throw new TypeError()
 
-        var
+        let
           t = Object(this),
           len = t.length >>> 0,
           thisArg = arguments.length >= 2 ? arguments[1] : void 0
 
-        for (var i = 0; i < len; i++)
+        for (let i = 0; i < len; i++)
           if (i in t)
             fun.call(thisArg, t[i], i, t)
       }
     }
 
-    var script = document.createElement('script')
+    let script = document.createElement('script')
     script.type = 'text/javascript'
     script.src = 'https://admin.one-tree.net/assets/js/iframe-resizer/iframeResizer.min.js'
     script.onload = script.onreadystatechange = function () {
       if (typeof iFrameResize !== 'undefined') {
-        iFrameResize({
-          checkOrigin: false,
-          enablePublicMethods: true
-        }, '#onetree-iframe')
+        iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#cassh-vouchers-iframe')
       }
     }
 
     /**
      * Receives message when fancybox has been opened
-     * @param  message
+     *
      * @return
+     * @param e
      */
     function receiver (e) {
-      if (e.data == 'show details clicked' || e.data == 'page loaded') {
-        var iframe = document.getElementById('onetree-iframe')
-        var set = {
+      console.log(`receiver - e.data=${e.data}`)
+      if (e.data === 'show details clicked' || e.data === 'page loaded') {
+        let iframe = document.getElementById('cassh-vouchers-iframe')
+        let set = {
           'scrollTop': $(window).scrollTop(),
-          'offset': $('#onetree-iframe').offset().top,
+          'offset': $('#cassh-vouchers-iframe').offset().top,
           'height': $(window).height(),
-          'offsetBottom': Math.abs($(window).height() - $('#onetree-iframe').offset().top - $('#onetree-iframe').height()),
+          'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
           'clickOverride': true,
-          'iframeHeight': $('#onetree-iframe').height()
+          'iframeHeight': $('#cassh-vouchers-iframe').height()
         }
 
         // Send message to iframe
+        console.log(`send message to iframe - receiver >>>`, JSON.stringify(set))
         iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
-      } else if (e.data == 'fixed iframe height') {
-        $('#onetree-iframe').height('1200px')
-      } else if (e.data == 'scroll to top') {
+      } else if (e.data === 'fixed iframe height') {
+        $('#cassh-vouchers-iframe').height('1200px')
+      } else if (e.data === 'scroll to top') {
         // Attempt to scroll them 150px above the top of the iframe
-        var scrollOffset = $('#onetree-iframe').offset().top
+        let scrollOffset = $('#cassh-vouchers-iframe').offset().top
         if (scrollOffset < 0) scrollOffset = 0
-        $('html, body').animate({ scrollTop: scrollOffset }, '200')
-      } else if (e.data == 'scroll to middle') {
+        $('html, body').animate({ scrollTop: scrollOffset }, 200)
+      } else if (e.data === 'scroll to middle') {
 
-        var el = $('#onetree-iframe')
-        var elOffset = el.offset().top
-        var elHeight = el.height()
-        var windowHeight = $(window).height()
-        var offset
+        let el = $('#cassh-vouchers-iframe')
+        let elOffset = el.offset().top
+        let elHeight = el.height()
+        let windowHeight = $(window).height()
+        let offset
 
         if (elHeight < windowHeight) {
           offset = elOffset - ((windowHeight / 2) - (elHeight / 2))
@@ -104,20 +104,20 @@
 
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
-      var iframe = document.getElementById('onetree-iframe')
-      var set = {
+      let iframe = document.getElementById('cassh-vouchers-iframe')
+      let set = {
         'scrollTop': $(window).scrollTop(),
-        'offset': $('#onetree-iframe').offset().top,
+        'offset': $('#cassh-vouchers-iframe').offset().top,
         'height': $(window).height(),
-        'offsetBottom': Math.abs($(window).height() - $('#onetree-iframe').offset().top - $('#onetree-iframe').height()),
+        'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
 
       // Send message to iframe
+      console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
       iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
-
   }
 })
 
