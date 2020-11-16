@@ -26,29 +26,29 @@
       'style': 'border: 0 none; overflow-y: hidden; min-height: 300px;'
     })
 
-    if (!Array.prototype.forEach) {
-      Array.prototype.forEach = function (fun /*, thisArg */) {
-        'use strict'
-        if (this === void 0 || this === null || typeof fun !== 'function') throw new TypeError()
+    // if (!Array.prototype.forEach) {
+    //   Array.prototype.forEach = function (fun /*, thisArg */) {
+    //     'use strict'
+    //     if (this === void 0 || this === null || typeof fun !== 'function') throw new TypeError()
+    //
+    //     let t = Object(this),
+    //       len = t.length >>> 0,
+    //       thisArg = arguments.length >= 2 ? arguments[1] : void 0
+    //
+    //     for (let i = 0; i < len; i++)
+    //       if (i in t)
+    //         fun.call(thisArg, t[i], i, t)
+    //   }
+    // }
 
-        let t = Object(this),
-          len = t.length >>> 0,
-          thisArg = arguments.length >= 2 ? arguments[1] : void 0
-
-        for (let i = 0; i < len; i++)
-          if (i in t)
-            fun.call(thisArg, t[i], i, t)
-      }
-    }
-
-    let script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/iframe-resizer.js'
-    script.onload = script.onreadystatechange = function () {
-      if (typeof iFrameResize !== 'undefined') {
-        iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#cassh-vouchers-iframe')
-      }
-    }
+    // let script = document.createElement('script')
+    // script.type = 'text/javascript'
+    // script.src = 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/iframe-resizer.js'
+    // script.onload = script.onreadystatechange = function () {
+    //   if (typeof iFrameResize !== 'undefined') {
+    //     iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#cassh-vouchers-iframe')
+    //   }
+    // }
 
     /**
      * Receives message when fancybox has been opened
@@ -95,25 +95,25 @@
       }
     }
 
-    if (window.addEventListener) {
-      window.addEventListener('message', receiver, false)
-    } else {
-      window.attachEvent('message', receiver)
-    }
+    // if (window.addEventListener) {
+    //   window.addEventListener('message', receiver, false)
+    // } else {
+    //   window.attachEvent('message', receiver)
+    // }
 
     // Sends messages to iframe on scroll
-    $(window).scroll(function () {
-      let iframe = document.getElementById('cassh-vouchers-iframe')
-      let set = {
-        'scrollTop': $(window).scrollTop(),
-        'offset': $('#cassh-vouchers-iframe').offset().top,
-        'height': $(window).height(),
-        'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
-      }
-
-      // Send message to iframe
-      iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
-    })
+    // $(window).scroll(function () {
+    //   let iframe = document.getElementById('cassh-vouchers-iframe')
+    //   let set = {
+    //     'scrollTop': $(window).scrollTop(),
+    //     'offset': $('#cassh-vouchers-iframe').offset().top,
+    //     'height': $(window).height(),
+    //     'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
+    //   }
+    //
+    //   // Send message to iframe
+    //   iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
+    // })
 
     document.getElementsByTagName('head')[0].appendChild(script)
   }
