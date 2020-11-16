@@ -117,6 +117,7 @@
         'offsetHeight': $(window).height(),
         'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
+      iframe.offsetHeight = $(window).height()
       console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
 
       // Send message to iframe
