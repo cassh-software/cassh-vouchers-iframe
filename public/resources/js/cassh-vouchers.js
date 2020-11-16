@@ -17,7 +17,7 @@
 })(window, document, '1.7.2', function ($, jquery_loaded) {
   if ($('#panel-gift-items').length > 0) {
     $('#panel-gift-items').text('')
-    $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0"></iframe>').appendTo('#panel-gift-items')
+    $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0" sandbox="allow-scripts"></iframe>').appendTo('#panel-gift-items')
     $('#cassh-vouchers-iframe').attr({
       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
       'style': 'border: 0 none; overflow-y: hidden; min-height: 2000px;'
@@ -122,7 +122,8 @@
 
       // Send message to iframe
       console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
-      iframe.onload = function () {iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')}
+      iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
+      // iframe.onload = function () {iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')}
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
