@@ -20,10 +20,11 @@
   if ($('#panel-gift-items').length > 0) {
     console.log(`panel-gift-items found...`)
     $('#panel-gift-items').text('')
-    $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
+    $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
+    // $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
     $('#cassh-vouchers-iframe').attr({
       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
-      'style': 'border: 0 none; overflow-y: hidden; min-height: 300px;'
+      'style': 'border: 0 none; overflow-y: hidden; min-height: 1000px;'
     })
 
     // if (!Array.prototype.forEach) {
