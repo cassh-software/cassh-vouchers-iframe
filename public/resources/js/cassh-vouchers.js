@@ -65,7 +65,8 @@
     function receiver (e) {
       console.log(`e >>>`, e)
       let iframe = document.getElementById('cassh-vouchers-iframe')
-      console.log(`window_height=${iframe.height()}`)
+      console.log(`iframe=${iframe}`)
+      // console.log(`window_height=${iframe.height()}`)
       if (e.data === 'show details clicked' || e.data === 'page loaded') {
         // let iframe = document.getElementById('cassh-vouchers-iframe')
         let set = {
@@ -122,18 +123,19 @@
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
       let iframe = document.getElementById('cassh-vouchers-iframe')
-      let set = {
-        'scrollTop': $(window).scrollTop(),
-        'offset': iframe.offset().top,
-        // 'offset': $('#cassh-vouchers-iframe').offset().top,
-        'height': $(window).height(),
-        'offsetBottom': Math.abs($(window).height() - iframe.offset().top - iframe.height()),
-        // 'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
-      }
-
-      // Send message to iframe
-      console.log(`sending message to iframe`)
-      iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
+      console.log(`iframe on scroll >>>`, iframe)
+      // let set = {
+      //   'scrollTop': $(window).scrollTop(),
+      //   'offset': iframe.offset().top,
+      //   // 'offset': $('#cassh-vouchers-iframe').offset().top,
+      //   'height': $(window).height(),
+      //   'offsetBottom': Math.abs($(window).height() - iframe.offset().top - iframe.height()),
+      //   // 'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
+      // }
+      //
+      // // Send message to iframe
+      // console.log(`sending message to iframe`)
+      // iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
