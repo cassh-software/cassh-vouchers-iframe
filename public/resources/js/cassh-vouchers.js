@@ -56,6 +56,8 @@
      */
     function receiver (e) {
       console.log(`receiver - e.data=${e.data}`)
+      console.log(`receiver - e >>>`, e)
+
       if (e.data === 'show details clicked' || e.data === 'page loaded') {
         let iframe = document.getElementById('cassh-vouchers-iframe')
         let set = {
