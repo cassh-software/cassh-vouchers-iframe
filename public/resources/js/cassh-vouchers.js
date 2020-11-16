@@ -114,6 +114,7 @@
         'scrollTop': $(window).scrollTop(),
         'offset': $('#cassh-vouchers-iframe').offset().top,
         'height': $(window).height(),
+        'offsetHeight': $(window).height(),
         'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
       console.log(`scrolling... >>> height=${$(window).height()} >>> offsetHeight=${$(window).offsetHeight} >>> iframe_height=${iframe.height} >>> iframe_offsetHeight=${iframe.offsetHeight}`)
