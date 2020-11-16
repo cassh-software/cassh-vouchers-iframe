@@ -1,5 +1,5 @@
 (function (window, document, version, callback) {
-  console.log(`starting first script function...`)
+  console.log(`starting first script...`)
   let j, d
   let loaded = false
   if (!(j = window.jQuery) || version > j.fn.jquery || callback(j, loaded)) {
@@ -18,6 +18,7 @@
 })(window, document, '1.7.2', function ($, jquery_loaded) {
   console.log(`starting second script...`)
   let panel = $('#panel-gift-items')
+  console.log(`panel >>>`, panel)
 
   if (panel.length > 0) {
     // if ($('#panel-gift-items').length > 0) {
@@ -26,10 +27,12 @@
     // $('#panel-gift-items').text('')
     $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
     // $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
-    $('#cassh-vouchers-iframe').attr({
+    let added_iframe = $('#cassh-vouchers-iframe')
+    added_iframe.attr({
       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
       'style': 'border: 0 none; overflow-y: hidden; min-height: 1000px;'
     })
+    console.log(`added_iframe`, added_iframe)
 
     console.log(`this >>>`, this)
     // if (!Array.prototype.forEach) {
@@ -64,9 +67,10 @@
      */
     function receiver (e) {
       console.log(`e >>>`, e)
+      console.log(`e.data >>>`, e.data)
       let iframe = document.getElementById('cassh-vouchers-iframe')
       console.log(`iframe=${iframe}`)
-      // console.log(`window_height=${iframe.height()}`)
+      console.log(`window_height=${iframe.height}`)
       // if (e.data === 'show details clicked' || e.data === 'page loaded') {
       //   // let iframe = document.getElementById('cassh-vouchers-iframe')
       //   let set = {
