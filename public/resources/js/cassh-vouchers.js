@@ -98,12 +98,15 @@
 
     if (window.addEventListener) {
       window.addEventListener('message', receiver, false)
+      console.log(`addEventListener`)
     } else {
       window.attachEvent('message', receiver)
+      console.log(`attachEvent`)
     }
 
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
+      console.log(`scrolling...`)
       let iframe = document.getElementById('cassh-vouchers-iframe')
       let set = {
         'scrollTop': $(window).scrollTop(),
