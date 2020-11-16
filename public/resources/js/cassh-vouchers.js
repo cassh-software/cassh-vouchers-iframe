@@ -122,7 +122,7 @@
 
       // Send message to iframe
       console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
-      iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
+      iframe.onload = function () {iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')}
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
