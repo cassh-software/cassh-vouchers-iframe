@@ -20,7 +20,7 @@
     $('<iframe id="onetree-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0"></iframe>').appendTo('#panel-gift-items')
     $('#onetree-iframe').attr({
       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
-      'style': 'border: 0 none; overflow-y: hidden; min-height: 2000px;'
+      'style': 'border: 0 none; overflow-y: hidden; min-height: 1500px;'
     })
 
     if (!Array.prototype.forEach) {
