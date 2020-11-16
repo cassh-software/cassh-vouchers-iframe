@@ -1,7 +1,9 @@
 (function (window, document, version, callback) {
+  console.log(`starting first script function...`)
   let j, d
   let loaded = false
   if (!(j = window.jQuery) || version > j.fn.jquery || callback(j, loaded)) {
+    console.log(`tripped in first script function...`)
     let script = document.createElement('script')
     script.type = 'text/javascript'
     script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
@@ -11,11 +13,12 @@
         j(script).remove()
       }
     }
-
     document.getElementsByTagName('head')[0].appendChild(script)
   }
 })(window, document, '1.7.2', function ($, jquery_loaded) {
+  console.log(`starting second script...`)
   if ($('#panel-gift-items').length > 0) {
+    console.log(`panel-gift-items found...`)
     $('#panel-gift-items').text('')
     $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
     $('#cassh-vouchers-iframe').attr({
@@ -53,6 +56,7 @@
      * @param e
      */
     function receiver (e) {
+      console.log(`e >>>`, e)
       if (e.data === 'show details clicked' || e.data === 'page loaded') {
         let iframe = document.getElementById('cassh-vouchers-iframe')
         let set = {
