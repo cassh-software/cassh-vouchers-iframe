@@ -67,50 +67,51 @@
       let iframe = document.getElementById('cassh-vouchers-iframe')
       console.log(`iframe=${iframe}`)
       // console.log(`window_height=${iframe.height()}`)
-      if (e.data === 'show details clicked' || e.data === 'page loaded') {
-        // let iframe = document.getElementById('cassh-vouchers-iframe')
-        let set = {
-          'scrollTop': $(window).scrollTop(),
-          'offset': iframe.offset().top,
-          // 'offset': $('#cassh-vouchers-iframe').offset().top,
-          'height': $(window).height(),
-          'offsetBottom': Math.abs($(window).height() - iframe.offset().top - iframe.height()),
-          // 'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
-          'clickOverride': true,
-          'iframeHeight': iframe.height()
-          // 'iframeHeight': $('#cassh-vouchers-iframe').height()
-        }
-        console.log(`set >>> type=${typeof set} >>>`, set)
-        // Send message to iframe
-        iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
-      } else if (e.data === 'fixed iframe height') {
-        iframe.height('1200px')
-        // $('#cassh-vouchers-iframe').height('1200px')
-      } else if (e.data === 'scroll to top') {
-        // Attempt to scroll them 150px above the top of the iframe
-        // let scrollOffset = $('#cassh-vouchers-iframe').offset().top
-        let scrollOffset = iframe.offset().top
-        if (scrollOffset < 0) scrollOffset = 0
-        $('html, body').animate({ scrollTop: scrollOffset }, 200)
-      } else if (e.data === 'scroll to middle') {
-        // let el = $('#cassh-vouchers-iframe')
-        // let elOffset = el.offset().top
-        // let elHeight = el.height()
-        let elOffset = iframe.offset().top
-        let elHeight = iframe.height()
-        let windowHeight = $(window).height()
-        let offset
-
-        if (elHeight < windowHeight) {
-          offset = elOffset - ((windowHeight / 2) - (elHeight / 2))
-        } else {
-          offset = elOffset + ((elHeight - windowHeight) / 2)
-        }
-        console.log(`offset=${offset}`)
-
-        $('html, body').animate({ scrollTop: offset }, 200)
-        return false
-      }
+      // if (e.data === 'show details clicked' || e.data === 'page loaded') {
+      //   // let iframe = document.getElementById('cassh-vouchers-iframe')
+      //   let set = {
+      //     'scrollTop': $(window).scrollTop(),
+      //     'offset': iframe.offset().top,
+      //     // 'offset': $('#cassh-vouchers-iframe').offset().top,
+      //     'height': $(window).height(),
+      //     'offsetBottom': Math.abs($(window).height() - iframe.offset().top - iframe.height()),
+      //     // 'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
+      //     'clickOverride': true,
+      //     'iframeHeight': iframe.height()
+      //     // 'iframeHeight': $('#cassh-vouchers-iframe').height()
+      //   }
+      //   console.log(`set >>> type=${typeof set} >>>`, set)
+      //   // Send message to iframe
+      //   iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
+      // } else if (e.data === 'fixed iframe height') {
+      //   iframe.height('1200px')
+      //   // $('#cassh-vouchers-iframe').height('1200px')
+      // } else if (e.data === 'scroll to top') {
+      //   // Attempt to scroll them 150px above the top of the iframe
+      //   // let scrollOffset = $('#cassh-vouchers-iframe').offset().top
+      //   let scrollOffset = iframe.offset().top
+      //   if (scrollOffset < 0) scrollOffset = 0
+      //   $('html, body').animate({ scrollTop: scrollOffset }, 200)
+      // } else
+      // if (e.data === 'scroll to middle') {
+      //   // let el = $('#cassh-vouchers-iframe')
+      //   // let elOffset = el.offset().top
+      //   // let elHeight = el.height()
+      //   let elOffset = iframe.offset().top
+      //   let elHeight = iframe.height()
+      //   let windowHeight = $(window).height()
+      //   let offset
+      //
+      //   if (elHeight < windowHeight) {
+      //     offset = elOffset - ((windowHeight / 2) - (elHeight / 2))
+      //   } else {
+      //     offset = elOffset + ((elHeight - windowHeight) / 2)
+      //   }
+      //   console.log(`offset=${offset}`)
+      //
+      //   $('html, body').animate({ scrollTop: offset }, 200)
+      //   return false
+      // }
     }
 
     if (window.addEventListener) {
