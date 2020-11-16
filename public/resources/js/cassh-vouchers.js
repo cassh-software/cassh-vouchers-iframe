@@ -106,7 +106,6 @@
 
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
-      console.log(`scrolling...`)
       let iframe = document.getElementById('cassh-vouchers-iframe')
       let set = {
         'scrollTop': $(window).scrollTop(),
@@ -114,6 +113,7 @@
         'height': $(window).height(),
         'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
+      console.log(`scrolling... >>> height=${$(window).height()} >>> offsetHeight=${$(window).offsetHeight} >>> iframe_height=${iframe.height} >>> iframe_offsetHeight=${iframe.offsetHeight}`)
 
       // Send message to iframe
       console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
