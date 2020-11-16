@@ -116,6 +116,6 @@
     //   iframe.contentWindow.postMessage(JSON.stringify(set), 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/cassh-vouchers.js')
     // })
 
-    document.getElementsByTagName('head')[0].appendChild(script)
+    // document.getElementsByTagName('head')[0].appendChild(script)
   }
 })
