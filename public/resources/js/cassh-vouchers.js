@@ -64,6 +64,7 @@
           'scrollTop': $(window).scrollTop(),
           'offset': $('#cassh-vouchers-iframe').offset().top,
           'height': $(window).height(),
+          'offsetHeight': $(window).height(),
           'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
           'clickOverride': true,
           'iframeHeight': $('#cassh-vouchers-iframe').height()
@@ -72,6 +73,7 @@
         // Send message to iframe
         console.log(`send message to iframe - receiver >>>`, JSON.stringify(set))
         iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
+        console.log(`receiver... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
       } else if (e.data === 'fixed iframe height') {
         $('#cassh-vouchers-iframe').height('1200px')
       } else if (e.data === 'scroll to top') {
@@ -108,7 +110,7 @@
 
     // Sends messages to iframe on scroll
     $(window).scroll(function () {
-      console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight}`)
+      // console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight}`)
       let iframe = document.getElementById('cassh-vouchers-iframe')
       let set = {
         'scrollTop': $(window).scrollTop(),
@@ -117,13 +119,13 @@
         'offsetHeight': $(window).height(),
         'offsetBottom': Math.abs($(window).height() - $('#cassh-vouchers-iframe').offset().top - $('#cassh-vouchers-iframe').height()),
       }
-      iframe.offsetHeight = $(window).height()
-      console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
+      // console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
 
       // Send message to iframe
       console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
       iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
       // iframe.onload = function () {iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')}
+      console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
     })
 
     document.getElementsByTagName('head')[0].appendChild(script)
