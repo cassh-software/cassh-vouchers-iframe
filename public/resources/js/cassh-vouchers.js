@@ -20,7 +20,7 @@
     // $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0"></iframe>').appendTo('#panel-gift-items')
     $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no" frameborder="0" sandbox="allow-scripts"></iframe>').appendTo('#panel-gift-items')
     $('#cassh-vouchers-iframe').attr({
-      'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
+      'src': 'https://phplaravel-498523-1577626.cloudwaysapps.com/',
       'style': 'border: 0 none; overflow-y: hidden; min-height: 2000px;'
     })
 
@@ -73,7 +73,7 @@
 
         // Send message to iframe
         console.log(`send message to iframe - receiver >>>`, JSON.stringify(set))
-        iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
+        iframe.contentWindow.postMessage(JSON.stringify(set), 'https://phplaravel-498523-1577626.cloudwaysapps.com/')
         console.log(`receiver... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
       } else if (e.data === 'fixed iframe height') {
         $('#cassh-vouchers-iframe').height('1200px')
@@ -124,7 +124,7 @@
 
       // Send message to iframe
       console.log(`send message to iframe - scroll >>>`, JSON.stringify(set))
-      iframe.contentWindow.postMessage(JSON.stringify(set), 'http://phplaravel-498523-1577626.cloudwaysapps.com/')
+      iframe.contentWindow.postMessage(JSON.stringify(set), 'https://phplaravel-498523-1577626.cloudwaysapps.com/')
       console.log(`scrolling... >>> window.height=${$(window).height()} >>> window.offsetHeight=${$(window).offsetHeight} >>> iframe.height=${iframe.height} >>> iframe.offsetHeight=${iframe.offsetHeight}`)
     })
 
@@ -163,7 +163,7 @@
 //     // $('<iframe id="cassh-vouchers-iframe" name="otsessionframe" width="100%" scrolling="no"' + ' frameborder="0"></iframe>').appendTo('#panel-gift-items')
 //     let added_iframe = $('#cassh-vouchers-iframe')
 //     added_iframe.attr({
-//       'src': 'http://phplaravel-498523-1577626.cloudwaysapps.com/',
+//       'src': 'https://phplaravel-498523-1577626.cloudwaysapps.com/',
 //       'style': 'border: 0 none; overflow-y: hidden; min-height: 1000px;'
 //     })
 //     console.log(`added_iframe`, added_iframe)
