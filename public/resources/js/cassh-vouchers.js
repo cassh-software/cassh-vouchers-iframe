@@ -42,7 +42,7 @@
 
     let script = document.createElement('script')
     script.type = 'text/javascript'
-    script.src = 'https://admin.one-tree.net/assets/js/iframe-resizer/iframeResizer.min.js'
+    script.src = 'https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/iframe-resizer.js'
     script.onload = script.onreadystatechange = function () {
       if (typeof iFrameResize !== 'undefined') {
         iFrameResize({ checkOrigin: false, enablePublicMethods: true }, '#cassh-vouchers-iframe')
