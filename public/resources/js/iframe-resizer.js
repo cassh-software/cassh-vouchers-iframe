@@ -18,7 +18,8 @@ window.onload = () => {
 
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
-  resize.onload = () => {
+  resize.onload = function () {
+    console.log(`Running iFrameResize...`)
     iFrameResize({
       log: false,
       enablePublicMethods: true,
