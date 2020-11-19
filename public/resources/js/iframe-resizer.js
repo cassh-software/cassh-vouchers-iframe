@@ -52,6 +52,7 @@ window.onload = () => {
   // resize.setAttribute(`defer`, `defer`)
   console.log(`resize --->>>`, resize)
   head.appendChild(resize)
+  function_call()
 
   console.log(`Done...`)
 }
