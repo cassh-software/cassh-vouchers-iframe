@@ -46,13 +46,42 @@ window.onload = () => {
   }
   console.log(`function_call --->>>`, function_call)
 
+  let caller = `    console.log(\`Running iFrameResize...\`)
+    iFrameResize({
+      log: false,
+      enablePublicMethods: true,
+      resizedCallback: function (messageData) {
+        $('p#callback').html(
+          '<b>Frame ID:</b> ' + messageData.iframe.id +
+          ' <b>Height:</b> ' + messageData.height +
+          ' <b>Width:</b> ' + messageData.width +
+          ' <b>Event type:</b> ' + messageData.type
+        )
+      },
+      messageCallback: function (messageData) {
+        $('p#callback').html(
+          '<b>Frame ID:</b> ' + messageData.iframe.id +
+          ' <b>Message:</b> ' + messageData.message
+        )
+        alert(messageData.message)
+      },
+      closedCallback: function (id) {
+        $('p#callback').html(
+          '<b>IFrame (</b>' + id +
+          '<b>) removed from page.</b>'
+        )
+      }
+    })`
+
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
-  resize.onload = function_call
+  // resize.onload = function_call
   // resize.setAttribute(`defer`, `defer`)
+  let inline = window.document.createTextNode(caller)
+  resize.appendChild(inline)
   console.log(`resize --->>>`, resize)
   head.appendChild(resize)
-  function_call()
+  // function_call()
 
   console.log(`Done...`)
 }
