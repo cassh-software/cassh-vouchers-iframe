@@ -7,14 +7,14 @@ window.onload = () => {
   jquery.setAttribute(`src`, `http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js`)
   // jquery.setAttribute(`defer`, `defer`)
   console.log(`jquery --->>>`, jquery)
-  head.append(jquery)
+  head.appendChild(jquery)
 
   let resizer = window.document.createElement(`script`)
   resizer.setAttribute(`type`, `text/javascript`)
   resizer.setAttribute(`src`, `https://cassh-software.github.io/cassh-vouchers-iframe/public/resources/js/iframeResizer.min.js`)
   // resizer.setAttribute(`defer`, `defer`)
   console.log(`resizer --->>>`, resizer)
-  head.append(resizer)
+  head.appendChild(resizer)
 
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
@@ -47,7 +47,7 @@ window.onload = () => {
   }
   // resize.setAttribute(`defer`, `defer`)
   console.log(`resize --->>>`, resize)
-  head.append(resize)
+  head.appendChild(resize)
 
   console.log(`Done...`)
 }
