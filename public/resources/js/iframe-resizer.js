@@ -1,6 +1,6 @@
 window.onload = () => {
   console.log(`Loading js file...`)
-  let head = window.document.getElementsByTagName(`head`)
+  let head = window.document.getElementsByTagName(`head`)[0]
   console.log(`head --->>>`, head)
 
   let jquery = window.document.createElement(`script`)
