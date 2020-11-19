@@ -16,9 +16,7 @@ window.onload = () => {
   console.log(`resizer --->>>`, resizer)
   head.appendChild(resizer)
 
-  let resize = window.document.createElement(`script`)
-  resize.setAttribute(`type`, `text/javascript`)
-  resize.onload = function () {
+  let function_call = function () {
     console.log(`Running iFrameResize...`)
     iFrameResize({
       log: false,
@@ -46,6 +44,10 @@ window.onload = () => {
       }
     })
   }
+
+  let resize = window.document.createElement(`script`)
+  resize.setAttribute(`type`, `text/javascript`)
+  resize.onload = function_call
   // resize.setAttribute(`defer`, `defer`)
   console.log(`resize --->>>`, resize)
   head.appendChild(resize)
