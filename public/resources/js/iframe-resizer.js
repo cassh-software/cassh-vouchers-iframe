@@ -44,6 +44,7 @@ window.onload = () => {
       }
     })
   }
+  console.log(`function_call --->>>`, function_call)
 
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
