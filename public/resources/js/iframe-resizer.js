@@ -1,6 +1,7 @@
 window.onload = () => {
   console.log(`Loading js file...`)
   let head = window.document.getElementsByTagName(`head`)
+  console.log(`head --->>>`, head)
 
   let jquery = window.document.createElement(`script`)
   jquery.setAttribute(`src`, `http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js`)
