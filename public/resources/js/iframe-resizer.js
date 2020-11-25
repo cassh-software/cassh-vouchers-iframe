@@ -72,7 +72,9 @@ window.onload = () => {
           '<b>) removed from page.</b>'
         )
       }
-    })`
+    })   
+    console.log('Done setting iFrameResize...')
+`
 
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
