@@ -4,7 +4,7 @@ window.onload = () => {
   // console.log(`head --->>>`, head)
 
   let jquery = window.document.createElement(`script`)
-  jquery.setAttribute(`src`, `http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js`)
+  jquery.setAttribute(`src`, `https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js`)
   // jquery.setAttribute(`defer`, `defer`)
   // console.log(`jquery --->>>`, jquery)
   head.appendChild(jquery)
