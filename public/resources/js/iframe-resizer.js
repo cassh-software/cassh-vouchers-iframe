@@ -49,7 +49,7 @@ window.onload = () => {
   let caller = `    
     console.log('Setting iFrameResize...')
     iFrameResize({
-      log: false,
+      log: true,
       enablePublicMethods: true,
       resizedCallback: function (messageData) {
         $('p#callback').html(
