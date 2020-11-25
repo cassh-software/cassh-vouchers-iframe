@@ -79,7 +79,7 @@ window.onload = () => {
   let resize = window.document.createElement(`script`)
   resize.setAttribute(`type`, `text/javascript`)
   // resize.onload = function_call
-  // resize.setAttribute(`defer`, `defer`)
+  resize.setAttribute(`defer`, `defer`)
   let inline = window.document.createTextNode(caller)
   resize.appendChild(inline)
   console.log(`resize --->>>`, resize)
