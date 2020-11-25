@@ -47,7 +47,7 @@ window.onload = () => {
   // console.log(`function_call --->>>`, function_call)
 
   let caller = `    
-    console.log('Setting iFrameResize...')
+    console.log('Calling iFrameResize...')
     iFrameResize({
       log: true,
       enablePublicMethods: true,
@@ -73,7 +73,7 @@ window.onload = () => {
         )
       }
     })   
-    console.log('Done setting iFrameResize...')
+    console.log('Done Calling iFrameResize...')
 `
 
   let resize = window.document.createElement(`script`)
